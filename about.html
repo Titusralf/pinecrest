@@ -1,0 +1,677 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Pinecrest Lumber Co.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f2e6d9;  /* Warm cream background */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            border-bottom: 3px solid #2f86c7;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(47, 134, 199, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-tabs a {
+            color: #2f86c7;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs a:hover {
+            background-color: #2f86c7;
+            color: white;
+        }
+
+        .nav-tabs a.active {
+            background-color: #2f86c7;
+            color: white;
+        }
+
+        /* Company Slogan Strip */
+        .company-slogan {
+            background-color: #8B7355;  /* Warm brown */
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 2rem 1rem 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            color: #2f86c7;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            color: #8B7355;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* About Container */
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 3rem;
+        }
+
+        /* Our Story Section */
+        .story-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin: 2rem 0 4rem;
+            align-items: center;
+        }
+
+        .story-content h2 {
+            color: #2f86c7;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .story-content h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: #8B7355;  /* Brown */
+        }
+
+        .story-content p {
+            color: #5a4a3a;
+            line-height: 1.8;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .story-image {
+            width: 100%;
+            height: 450px;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(47, 134, 199, 0.2);
+            border: 2px solid #2f86c7;
+            background: linear-gradient(135deg, #2f86c7, #1a5a8c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            position: relative;
+        }
+
+        .story-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        .story-image span {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(47, 134, 199, 0.9);
+            color: white;
+            padding: 0.5rem 1.5rem;
+            border-radius: 30px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 2px solid white;
+        }
+
+        /* Mission & Vision */
+        .mission-vision {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+
+        .mission-card, .vision-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 16px;
+            box-shadow: 0 4px 15px rgba(47, 134, 199, 0.1);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(47, 134, 199, 0.2);
+        }
+
+        .mission-card:hover, .vision-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(47, 134, 199, 0.2);
+            border-color: #2f86c7;
+        }
+
+        .mission-card::before, .vision-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background-color: #2f86c7;  /* Blue */
+        }
+
+        .card-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2f86c7;
+        }
+
+        .mission-card h3, .vision-card h3 {
+            color: #2f86c7;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .mission-card p, .vision-card p {
+            color: #8B7355;
+            line-height: 1.6;
+        }
+
+        /* Values Section */
+        .values-section {
+            margin-bottom: 4rem;
+        }
+
+        .values-section h2 {
+            color: #2f86c7;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .values-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #8B7355;  /* Brown */
+        }
+
+        .values-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+        }
+
+        .value-item {
+            background: white;
+            padding: 2rem;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(47, 134, 199, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(47, 134, 199, 0.2);
+        }
+
+        .value-item:hover {
+            background-color: #2f86c7;  /* Blue */
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(47, 134, 199, 0.3);
+        }
+
+        .value-item:hover .value-icon,
+        .value-item:hover h4,
+        .value-item:hover p {
+            color: white;
+        }
+
+        .value-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #2f86c7;
+            transition: color 0.3s ease;
+        }
+
+        .value-item h4 {
+            color: #2f86c7;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+            transition: color 0.3s ease;
+        }
+
+        .value-item p {
+            color: #8B7355;
+            font-size: 0.9rem;
+            line-height: 1.4;
+            transition: color 0.3s ease;
+        }
+
+        /* Team Section */
+        .team-section {
+            margin-bottom: 4rem;
+        }
+
+        .team-section h2 {
+            color: #2f86c7;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+            text-align: center;
+            position: relative;
+            padding-bottom: 0.5rem;
+        }
+
+        .team-section h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 3px;
+            background-color: #8B7355;  /* Brown */
+        }
+
+        .team-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+        }
+
+        .team-member {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(47, 134, 199, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(47, 134, 199, 0.2);
+        }
+
+        .team-member:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(47, 134, 199, 0.2);
+            border-color: #2f86c7;
+        }
+
+        .member-image {
+            height: 300px;
+            background: linear-gradient(135deg, #2f86c7, #1a5a8c);  /* Blue gradient */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            position: relative;
+            border-bottom: 3px solid #8B7355;  /* Brown */
+        }
+
+        .member-image::before {
+            content: "👤";
+            font-size: 4rem;
+            opacity: 0.3;
+        }
+
+        .member-info {
+            padding: 1.5rem;
+            text-align: center;
+        }
+
+        .member-info h4 {
+            color: #2f86c7;
+            font-size: 1.2rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .member-info .position {
+            color: #8B7355;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .member-info .bio {
+            color: #5a4a3a;
+            font-size: 0.9rem;
+            line-height: 1.4;
+        }
+
+        /* Footer */
+        footer {
+            background: #2f86c7;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+            border-top: 4px solid #8B7355;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #f2e6d9;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 968px) {
+            .story-section {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .values-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .team-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 10px 20px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .nav-tabs {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-tabs a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .mission-vision {
+                grid-template-columns: 1fr;
+            }
+
+            .values-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .team-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .story-image {
+                height: 350px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-tabs a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Image fallback */
+        .story-image img[alt] {
+            background: linear-gradient(135deg, #2f86c7, #1a5a8c);
+        }
+    </style>
+</head>
+<body>
+    <!-- Company Slogan Strip -->
+    <div class="company-slogan">
+        BEST WOODEN FURNITURE
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Pinecrest Lumber Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display:none; color:#2f86c7; font-weight:bold; font-size:1.2rem;">PINECREST</div>
+            </div>
+            <ul class="nav-tabs">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html" class="active">About Us</a></li>
+                <li><a href="products.html">Products</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>ABOUT US</h1>
+        <p>CRAFTING QUALITY WOOD FURNITURE FOR OVER 35 YEARS</p>
+    </div>
+
+    <!-- About Container -->
+    <div class="about-container">
+        
+        <!-- Our Story -->
+        <div class="story-section">
+            <div class="story-content">
+                <h2>Our Story</h2>
+                <p>Founded in 1985 by master carpenter James Harrison, Pinecrest Lumber Co. began as a small workshop in the heart of pine country. What started as a one-man operation crafting custom furniture for local families has grown into a trusted name in handcrafted wood furniture.</p>
+                <p>For three generations, we've maintained the same commitment to quality that James instilled from day one: use the finest local pine, employ traditional joinery techniques, and never compromise on craftsmanship. Every piece that leaves our workshop carries the pride of North Carolina's rich woodworking heritage.</p>
+                <p>Today, we're proud to serve customers across the country while remaining true to our roots as a family-owned business. Our team of 25 skilled artisans continues to handcraft each piece in our expanded 20,000 square foot facility, combining time-honored techniques with modern innovations.</p>
+            </div>
+            <div class="story-image">
+                <!-- Replace 'company-image.jpg' with your actual image filename -->
+                <img src="company-image.jpg" alt="Pinecrest Lumber Company" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2f86c7, #1a5a8c)'; this.parentElement.innerHTML += '<span>Est. 1985</span>';">
+                <span>Est. 1985</span>
+            </div>
+        </div>
+
+        <!-- Mission & Vision -->
+        <div class="mission-vision">
+            <div class="mission-card">
+                <div class="card-icon">🎯</div>
+                <h3>Our Mission</h3>
+                <p>To create beautiful, durable wood furniture that brings warmth and character to homes while supporting sustainable forestry and preserving traditional craftsmanship.</p>
+            </div>
+            <div class="vision-card">
+                <div class="card-icon">👁️</div>
+                <h3>Our Vision</h3>
+                <p>To be recognized as the premier source for handcrafted pine furniture, known for exceptional quality, timeless designs, and unwavering commitment to customer satisfaction.</p>
+            </div>
+        </div>
+
+        <!-- Values -->
+        <div class="values-section">
+            <h2>Our Core Values</h2>
+            <div class="values-grid">
+                <div class="value-item">
+                    <div class="value-icon">🪵</div>
+                    <h4>Quality First</h4>
+                    <p>We never compromise on materials or craftsmanship</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🌲</div>
+                    <h4>Sustainability</h4>
+                    <p>Committed to responsible forestry and eco-friendly practices</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">🤝</div>
+                    <h4>Integrity</h4>
+                    <p>Honest pricing, transparent business practices</p>
+                </div>
+                <div class="value-item">
+                    <div class="value-icon">👪</div>
+                    <h4>Family Legacy</h4>
+                    <p>Treating customers and employees like family</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Team -->
+        <div class="team-section">
+            <h2>Meet Our Team</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h4>Robert Harrison</h4>
+                        <div class="position">Master Carpenter & Owner</div>
+                        <p class="bio">Second generation craftsman with 30 years experience</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h4>Sarah Chen</h4>
+                        <div class="position">Head Designer</div>
+                        <p class="bio">Award-winning furniture designer since 2008</p>
+                    </div>
+                </div>
+                <div class="team-member">
+                    <div class="member-image"></div>
+                    <div class="member-info">
+                        <h4>Michael Thompson</h4>
+                        <div class="position">Production Manager</div>
+                        <p class="bio">Ensuring every piece meets our quality standards</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>PINECREST LUMBER CO.</h3>
+                <p>Handcrafting quality wood furniture since 1985. Proudly using sustainable pine from local forests.</p>
+            </div>
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="about.html">About Us</a></p>
+                <p><a href="products.html">Products</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+            <div class="footer-section">
+                <h3>CONTACT INFO</h3>
+                <p>📍 123 Forest Lane, Pineville</p>
+                <p>📞 (555) 123-4567</p>
+                <p>✉️ info@pinecrestlumber.com</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 PINECREST LUMBER CO. All rights reserved. | BEST WOODEN FURNITURE</p>
+        </div>
+    </footer>
+</body>
+</html>

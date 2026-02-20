@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Products - Pinecrest Lumber Co.</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: #f2e6d9;  /* Warm cream background */
+        }
+
+        /* Navigation Bar */
+        nav {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(6px);
+            border-bottom: 3px solid #2f86c7;
+            padding: 0.5rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 10px rgba(47, 134, 199, 0.2);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo img {
+            height: 60px;
+            width: auto;
+            display: block;
+        }
+
+        .nav-tabs {
+            display: flex;
+            list-style: none;
+            gap: 1.5rem;
+        }
+
+        .nav-tabs a {
+            color: #2f86c7;
+            text-decoration: none;
+            font-size: 1.05rem;
+            font-weight: 600;
+            padding: 8px 16px;
+            border-radius: 30px;
+            transition: 0.25s ease;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .nav-tabs a:hover {
+            background-color: #2f86c7;
+            color: white;
+        }
+
+        .nav-tabs a.active {
+            background-color: #2f86c7;
+            color: white;
+        }
+
+        /* Company Slogan Strip */
+        .company-slogan {
+            background-color: #8B7355;  /* Warm brown */
+            color: white;
+            text-align: center;
+            padding: 0.5rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+        }
+
+        /* Page Header */
+        .page-header {
+            text-align: center;
+            padding: 2rem 1rem 1rem;
+        }
+
+        .page-header h1 {
+            font-size: 2.5rem;
+            letter-spacing: 3px;
+            color: #2f86c7;
+            margin-bottom: 0.5rem;
+            font-weight: 700;
+        }
+
+        .page-header p {
+            color: #8B7355;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            font-weight: 500;
+        }
+
+        /* Products Container */
+        .products-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 3rem;
+        }
+
+        /* Category Section */
+        .category-section {
+            margin-bottom: 4rem;
+        }
+
+        .category-title {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 3px solid #8B7355;  /* Brown underline */
+        }
+
+        .category-title h2 {
+            font-size: 2rem;
+            color: #2f86c7;  /* Blue */
+        }
+
+        .category-icon {
+            font-size: 2rem;
+        }
+
+        /* Image Grid */
+        .image-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .image-card {
+            background: white;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(47, 134, 199, 0.1);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(47, 134, 199, 0.2);
+        }
+
+        .image-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(47, 134, 199, 0.2);
+            border-color: #2f86c7;
+        }
+
+        .product-image {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            display: block;
+            border-bottom: 3px solid #8B7355;  /* Brown accent */
+        }
+
+        .image-label {
+            padding: 1.5rem;
+            text-align: center;
+            background: white;
+        }
+
+        .image-label p {
+            color: #2f86c7;  /* Blue */
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-size: 1.1rem;
+        }
+
+        .image-label small {
+            color: #8B7355;  /* Brown */
+            font-size: 0.85rem;
+        }
+
+        /* Category Description */
+        .category-description {
+            background: white;
+            padding: 1.5rem;
+            border-radius: 16px;
+            margin-top: 1rem;
+            border-left: 4px solid #2f86c7;  /* Blue */
+            box-shadow: 0 2px 10px rgba(47, 134, 199, 0.1);
+            border: 1px solid rgba(47, 134, 199, 0.2);
+        }
+
+        .category-description p {
+            color: #8B7355;  /* Brown */
+            line-height: 1.6;
+            font-size: 1rem;
+        }
+
+        /* Footer */
+        footer {
+            background: #2f86c7;
+            color: white;
+            padding: 3rem 0 1.5rem;
+            margin-top: 4rem;
+            border-top: 4px solid #8B7355;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            border-bottom: 2px solid rgba(255,255,255,0.3);
+            padding-bottom: 0.5rem;
+        }
+
+        .footer-section p {
+            line-height: 1.6;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section a {
+            color: white;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-section a:hover {
+            color: #f2e6d9;
+            text-decoration: underline;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            margin-top: 2rem;
+            border-top: 1px solid rgba(255,255,255,0.2);
+            color: rgba(255,255,255,0.8);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 0.5rem;
+                padding: 10px 20px;
+            }
+
+            .logo img {
+                height: 50px;
+            }
+
+            .nav-tabs {
+                gap: 0.5rem;
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .nav-tabs a {
+                font-size: 0.9rem;
+                padding: 6px 12px;
+            }
+
+            .image-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 1rem;
+            }
+
+            .page-header h1 {
+                font-size: 2rem;
+            }
+
+            .page-header p {
+                font-size: 1rem;
+            }
+
+            .category-title h2 {
+                font-size: 1.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-tabs {
+                flex-direction: column;
+                align-items: center;
+                width: 100%;
+            }
+
+            .nav-tabs a {
+                display: block;
+                width: 100%;
+                text-align: center;
+            }
+
+            .image-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Image fallback styling */
+        .product-image[alt] {
+            background: linear-gradient(135deg, #2f86c7, #1a5a8c);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Company Slogan Strip -->
+    <div class="company-slogan">
+        BEST WOODEN FURNITURE
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">
+                <img src="logo.png" alt="Pinecrest Lumber Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+                <div style="display:none; color:#2f86c7; font-weight:bold; font-size:1.2rem;">PINECREST</div>
+            </div>
+            <ul class="nav-tabs">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="about.html">About Us</a></li>
+                <li><a href="products.html" class="active">Products</a></li>
+                <li><a href="contact.html">Contacts</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div class="page-header">
+        <h1>OUR PRODUCTS</h1>
+        <p>HANDCRAFTED WOOD FURNITURE FOR EVERY PART OF YOUR HOME</p>
+    </div>
+
+    <!-- Products Container -->
+    <div class="products-container">
+        
+        <!-- Category 1: Outside Furniture -->
+        <section class="category-section" id="outside">
+            <div class="category-title">
+                <span class="category-icon">🌳</span>
+                <h2>Outside Furniture</h2>
+            </div>
+            
+            <div class="image-grid">
+                <!-- 6 Images for Outside Furniture (imageo1.jpg to imageo6.jpg) -->
+                <div class="image-card">
+                    <img src="imageo1.jpg" alt="Patio Set" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo1.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Patio Set</p>
+                        <small>6-piece conversation set</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageo2.jpg" alt="Garden Bench" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo2.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Garden Bench</p>
+                        <small>Solid pine, 4ft length</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageo3.jpg" alt="Adirondack Chairs" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo3.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Adirondack Chairs</p>
+                        <small>Set of 2 with table</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageo4.jpg" alt="Picnic Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo4.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Picnic Table</p>
+                        <small>Seats 6-8 adults</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageo5.jpg" alt="Porch Swing" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo5.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Porch Swing</p>
+                        <small>3-seater with chains</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageo6.jpg" alt="Outdoor Dining Set" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo6.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Outdoor Dining Set</p>
+                        <small>Table + 6 chairs</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-description">
+                <p>🌿 Weather-resistant pine furniture perfect for your patio, garden, or deck. All pieces treated for outdoor durability with weather-resistant sealant.</p>
+            </div>
+        </section>
+
+        <!-- Category 2: Bedroom -->
+        <section class="category-section" id="bedroom">
+            <div class="category-title">
+                <span class="category-icon">🛏️</span>
+                <h2>Bedroom</h2>
+            </div>
+            
+            <div class="image-grid">
+                <!-- 6 Images for Bedroom (imageb1.jpg to imageb6.jpg) -->
+                <div class="image-card">
+                    <img src="imageb1.jpg" alt="Queen Bed Frame" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb1.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Queen Bed Frame</p>
+                        <small>Farmhouse style</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageb2.jpg" alt="King Bed Frame" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb2.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>King Bed Frame</p>
+                        <small>With storage drawers</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageb3.jpg" alt="Nightstand" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb3.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Nightstand</p>
+                        <small>2-drawer, matching sets</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageb4.jpg" alt="Dresser" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb4.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Dresser</p>
+                        <small>6-drawer with mirror</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageb5.jpg" alt="Wardrobe" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb5.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Wardrobe</p>
+                        <small>Double door, hanging space</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imageb6.jpg" alt="Bedside Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb6.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Bedside Table</p>
+                        <small>Single drawer + shelf</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-description">
+                <p>🛌 Solid pine bedroom furniture crafted for comfort and durability. Available in multiple finishes including natural, oak, and walnut.</p>
+            </div>
+        </section>
+
+        <!-- Category 3: Kitchen -->
+        <section class="category-section" id="kitchen">
+            <div class="category-title">
+                <span class="category-icon">🍳</span>
+                <h2>Kitchen</h2>
+            </div>
+            
+            <div class="image-grid">
+                <!-- 6 Images for Kitchen (imagek1.jpg to imagek6.jpg) -->
+                <div class="image-card">
+                    <img src="imagek1.jpg" alt="Kitchen Island" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek1.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Kitchen Island</p>
+                        <small>With butcher block top</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagek2.jpg" alt="Butcher Block" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek2.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Butcher Block</p>
+                        <small>End grain, 24"x18"</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagek3.jpg" alt="Pot Rack" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek3.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Pot Rack</p>
+                        <small>Ceiling mount, 36"</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagek4.jpg" alt="Kitchen Cart" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek4.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Kitchen Cart</p>
+                        <small>Portable with wheels</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagek5.jpg" alt="Bakers Rack" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek5.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Bakers Rack</p>
+                        <small>5-tier with shelves</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagek6.jpg" alt="Kitchen Cabinet" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek6.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Kitchen Cabinet</p>
+                        <small>Freestanding, adjustable shelves</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-description">
+                <p>🔪 Functional and beautiful kitchen furniture. Each piece designed to maximize your cooking space with durable, food-safe finishes.</p>
+            </div>
+        </section>
+
+        <!-- Category 4: Dining -->
+        <section class="category-section" id="dining">
+            <div class="category-title">
+                <span class="category-icon">🍽️</span>
+                <h2>Dining</h2>
+            </div>
+            
+            <div class="image-grid">
+                <!-- 6 Images for Dining (imaged1.jpg to imaged6.jpg) - Assuming naming pattern -->
+                <div class="image-card">
+                    <img src="imaged1.jpg" alt="Dining Table 6-Seat" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged1.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Dining Table (6-Seat)</p>
+                        <small>72" x 36" rectangle</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imaged2.jpg" alt="Dining Table 8-Seat" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged2.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Dining Table (8-Seat)</p>
+                        <small>84" x 40" with leaf</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imaged3.jpg" alt="Dining Chairs" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged3.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Dining Chairs</p>
+                        <small>Set of 4, upholstered seats</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imaged4.jpg" alt="Buffet Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged4.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Buffet Table</p>
+                        <small>60" with 3 drawers</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imaged5.jpg" alt="China Cabinet" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged5.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>China Cabinet</p>
+                        <small>Glass doors, lighted</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imaged6.jpg" alt="Bar Stools" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged6.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Bar Stools</p>
+                        <small>Set of 2, counter height</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="category-description">
+                <p>🍷 Gather around our handcrafted dining tables and chairs. Perfect for family meals and entertaining guests. Available in various sizes and finishes.</p>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-section">
+                <h3>PINECREST LUMBER CO.</h3>
+                <p>Handcrafting quality wood furniture since 1985. Proudly using sustainable pine from local forests.</p>
+            </div>
+
+            <div class="footer-section">
+                <h3>QUICK LINKS</h3>
+                <p><a href="index.html">Home</a></p>
+                <p><a href="about.html">About Us</a></p>
+                <p><a href="products.html">Products</a></p>
+                <p><a href="contact.html">Contact</a></p>
+            </div>
+
+            <div class="footer-section">
+                <h3>CONTACT INFO</h3>
+                <p>📍 123 Forest Lane, Pineville</p>
+                <p>📞 (555) 123-4567</p>
+                <p>✉️ info@pinecrestlumber.com</p>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <p>&copy; 2024 PINECREST LUMBER CO. All rights reserved. | BEST WOODEN FURNITURE</p>
+        </div>
+    </footer>
+
+    <script>
+        // Optional: Add click handlers for image cards
+        document.querySelectorAll('.image-card').forEach(card => {
+            card.addEventListener('click', function() {
+                console.log('Product clicked:', this.querySelector('.image-label p').textContent);
+            });
+        });
+    </script>
+</body>
+</html>
