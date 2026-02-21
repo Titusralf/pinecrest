@@ -37,12 +37,36 @@
             padding: 0 20px;
         }
 
-        .logo img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
+       .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+}
 
+.logo img{
+    height:55px;
+    width:auto;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:1.25rem;
+    font-weight:700;
+    color:#2f86c7;
+    letter-spacing:1px;
+}
+		.logo strong{
+    color:#8b6f47;
+}
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    background:none;
+    border:none;
+    color:#2f86c7;
+    cursor:pointer;
+}
         .nav-tabs {
             display: flex;
             list-style: none;
@@ -463,26 +487,40 @@
         }
 
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 10px 20px;
-            }
+		.menu-toggle{
+    display:block;
+}
+      .nav-container{
+    flex-direction:row;
+    justify-content:space-between;
+}
 
-            .logo img {
-                height: 50px;
-            }
+/* hide menu */
+.nav-tabs{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:0.3s ease;
+}
 
-            .nav-tabs {
-                gap: 0.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+/* show menu when active */
+.nav-tabs.active{
+    max-height:300px;
+    padding:10px 0;
+}
 
-            .nav-tabs a {
-                font-size: 0.9rem;
-                padding: 6px 12px;
-            }
+.nav-tabs a{
+    width:100%;
+    padding:15px;
+    border-bottom:1px solid #eee;
+}      
 
             .mission-vision {
                 grid-template-columns: 1fr;
@@ -538,17 +576,21 @@
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="Pinecrest Lumber Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display:none; color:#2f86c7; font-weight:bold; font-size:1.2rem;">PINECREST</div>
-            </div>
-            <ul class="nav-tabs">
-                <li><a href="index.html">Home</a></li>
+
+    <a href="index.html" class="logo">
+        <img src="logo.jpg">
+        <span>Pinecrest <strong>Lumber</strong></span>
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <ul class="nav-tabs" id="nav-tabs">
+      <li><a href="index.html">Home</a></li>
                 <li><a href="about.html" class="active">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contacts</a></li>
-            </ul>
-        </div>
+                <li><a href="contact.html">Contacts</a></li> 
+    </ul>
+</div>
     </nav>
 
     <!-- Page Header -->
@@ -570,7 +612,7 @@
             </div>
             <div class="story-image">
                 <!-- Replace 'company-image.jpg' with your actual image filename -->
-                <img src="company-image.jpg" alt="Pinecrest Lumber Company" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2f86c7, #1a5a8c)'; this.parentElement.innerHTML += '<span>Est. 1985</span>';">
+                <img src="logo.jpg" alt="Pinecrest Lumber Company" onerror="this.style.display='none'; this.parentElement.style.background='linear-gradient(135deg, #2f86c7, #1a5a8c)'; this.parentElement.innerHTML += '<span>Est. 1985</span>';">
                 <span>Est. 1985</span>
             </div>
         </div>
@@ -664,14 +706,22 @@
             </div>
             <div class="footer-section">
                 <h3>CONTACT INFO</h3>
-                <p>📍 123 Forest Lane, Pineville</p>
-                <p>📞 (555) 123-4567</p>
-                <p>✉️ info@pinecrestlumber.com</p>
+                <p>📍 Cnr 14 avenue and Blue Street Cason, Boksburg, 1459</p>
+                <p>📞 078 518 3355/067 042 8373</p>
+                <p>✉️ mapararamotion0@gmail.com</p>
             </div>
         </div>
         <div class="footer-bottom">
             <p>&copy; 2024 PINECREST LUMBER CO. All rights reserved. | BEST WOODEN FURNITURE</p>
         </div>
     </footer>
+	<script>
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-tabs");
+
+toggle.addEventListener("click", ()=>{
+    nav.classList.toggle("active");
+});
+</script>
 </body>
 </html>
