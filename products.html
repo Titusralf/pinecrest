@@ -37,11 +37,36 @@
             padding: 0 20px;
         }
 
-        .logo img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
+        .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+}
+
+.logo img{
+    height:55px;
+    width:auto;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:1.25rem;
+    font-weight:700;
+    color:#2f86c7;
+    letter-spacing:1px;
+}
+.logo strong{
+    color:#8b6f47;
+}
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    background:none;
+    border:none;
+    color:#2f86c7;
+    cursor:pointer;
+}
 
         .nav-tabs {
             display: flex;
@@ -255,26 +280,41 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 10px 20px;
-            }
+          .menu-toggle{
+    display:block;
+}
 
-            .logo img {
-                height: 50px;
-            }
+.nav-container{
+    flex-direction:row;
+    justify-content:space-between;
+}
 
-            .nav-tabs {
-                gap: 0.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+/* hide menu */
+.nav-tabs{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:0.3s ease;
+}
 
-            .nav-tabs a {
-                font-size: 0.9rem;
-                padding: 6px 12px;
-            }
+/* show menu when active */
+.nav-tabs.active{
+    max-height:300px;
+    padding:10px 0;
+}
+
+.nav-tabs a{
+    width:100%;
+    padding:15px;
+    border-bottom:1px solid #eee;
+} 
 
             .image-grid {
                 grid-template-columns: repeat(2, 1fr);
@@ -331,18 +371,22 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="logo.png" alt="Pinecrest Lumber Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display:none; color:#2f86c7; font-weight:bold; font-size:1.2rem;">PINECREST</div>
-            </div>
-            <ul class="nav-tabs">
-                <li><a href="index.html">Home</a></li>
+    <div class="nav-container">
+
+    <a href="index.html" class="logo">
+        <img src="logo.jpg">
+    <span>Pinecrest <strong>Lumber</strong></span>   
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <ul class="nav-tabs" id="nav-tabs">
+       <li><a href="index.html">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html" class="active">Products</a></li>
                 <li><a href="contact.html">Contacts</a></li>
-            </ul>
-        </div>
+    </ul>
+</div>    
     </nav>
 
     <!-- Page Header -->
@@ -443,7 +487,7 @@
                 </div>
 
                 <div class="image-card">
-                    <img src="imageb3.jpg" alt="Nightstand" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb3.jpg</text></svg>'; this.alt='Image not found'">
+                    <img src="imageb3.png" alt="Nightstand" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb3.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>Nightstand</p>
                         <small>2-drawer, matching sets</small>
@@ -643,6 +687,12 @@
                 console.log('Product clicked:', this.querySelector('.image-label p').textContent);
             });
         });
+		const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-tabs");
+
+toggle.addEventListener("click", ()=>{
+    nav.classList.toggle("active");
+});
     </script>
 </body>
 </html>
