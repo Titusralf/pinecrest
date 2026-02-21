@@ -37,12 +37,36 @@
             padding: 0 20px;
         }
 
-        .logo img {
-            height: 60px;
-            width: auto;
-            display: block;
-        }
+        .logo{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    text-decoration:none;
+}
 
+.logo img{
+    height:55px;
+    width:auto;
+    object-fit:contain;
+}
+
+.logo span{
+    font-size:1.25rem;
+    font-weight:700;
+    color:#2f86c7;
+    letter-spacing:1px;
+}
+.logo strong{
+    color:#8b6f47;
+}
+.menu-toggle{
+    display:none;
+    font-size:1.8rem;
+    background:none;
+    border:none;
+    color:#2f86c7;
+    cursor:pointer;
+}
         .nav-tabs {
             display: flex;
             list-style: none;
@@ -126,14 +150,32 @@
             display: block;
         }
 
-        .slide-image {
-            width: 100%;
-            height: 500px;
-            background: linear-gradient(135deg, #2f86c7, #1a5a8c);  /* Blue gradient */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+       .slide-image{
+    width:100%;
+    height:500px;
+    background:url("slide.jpg") center/cover no-repeat;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+}
+.slide{
+    position:relative;
+}
+
+.slide img{
+    width:100%;
+    height:500px;
+    object-fit:cover;
+    object-position:center;
+}
+
+
+.slide::after{
+    content:"";
+    position:absolute;
+    inset:0;
+    background:rgba(0,0,0,0.35);
+}
 
         .slide-image span {
             color: white;
@@ -289,17 +331,16 @@
             border-color: #2f86c7;
         }
 
-        .product-image {
-            height: 250px;
-            background: linear-gradient(135deg, #2f86c7, #1a5a8c);  /* Blue gradient */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 1.3rem;
-            position: relative;
-            border-bottom: 3px solid #8B7355;  /* Brown accent */
-        }
+        .product-image{
+    height:250px;
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+    object-fit:cover;
+}
 
         .product-image span {
             z-index: 1;
@@ -417,27 +458,41 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
-            .nav-container {
-                flex-direction: column;
-                gap: 0.5rem;
-                padding: 10px 20px;
-            }
+		.menu-toggle{
+    display:block;
+}
+            .nav-container{
+    flex-direction:row;
+    justify-content:space-between;
+}
 
             .logo img {
                 height: 50px;
             }
 
-            .nav-tabs {
-                gap: 0.5rem;
-                flex-wrap: wrap;
-                justify-content: center;
-            }
+            .nav-tabs{
+    position:absolute;
+    top:100%;
+    left:0;
+    width:100%;
+    background:white;
+    flex-direction:column;
+    align-items:center;
+    gap:0;
+    max-height:0;
+    overflow:hidden;
+    transition:0.3s ease;
+}
 
-            .nav-tabs a {
-                font-size: 0.9rem;
-                padding: 6px 12px;
-            }
-
+           .nav-tabs.active{
+    max-height:300px;
+    padding:10px 0;
+}
+.nav-tabs a{
+    width:100%;
+    padding:15px;
+    border-bottom:1px solid #eee;
+}
             .slideshow-wrapper {
                 min-height: 350px;
             }
@@ -490,18 +545,22 @@
 
     <!-- Navigation -->
     <nav>
-        <div class="nav-container">
-            <div class="logo">
-                <img src="images/logo.png" alt="Pinecrest Lumber Logo" onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
-                <div style="display:none; color:#2f86c7; font-weight:bold; font-size:1.2rem;">PINECREST</div>
-            </div>
-            <ul class="nav-tabs">
-                <li><a href="index.html" class="active">Home</a></li>
+ <div class="nav-container">
+
+    <a href="index.html" class="logo">
+        <img src="logo.jpg">
+     <span>Pinecrest <strong>Lumber</strong></span>   
+    </a>
+
+    <button class="menu-toggle" id="menu-toggle">☰</button>
+
+    <ul class="nav-tabs" id="nav-tabs">
+       <li><a href="index.html" class="active">Home</a></li>
                 <li><a href="about.html">About Us</a></li>
                 <li><a href="products.html">Products</a></li>
-                <li><a href="contact.html">Contacts</a></li>
-            </ul>
-        </div>
+                <li><a href="contact.html">Contacts</a></li> 
+    </ul>
+</div>
     </nav>
 
     <!-- Hero Banner -->
@@ -515,36 +574,33 @@
         <div class="slideshow-wrapper">
             <!-- Slide 1 -->
             <div class="slide active" id="slide1">
-                <div class="slide-image">
-                    <span>Handcrafted Excellence</span>
-                </div>
-                <div class="slide-content">
-                    <h2>Handcrafted Wood Furniture</h2>
-                    <p>Quality pine furniture for every home</p>
-                </div>
-            </div>
+    <img src="slide1.jpg" alt="Handcrafted Wood Furniture">
+
+    <div class="slide-content">
+        <h2>Handcrafted Wood Furniture</h2>
+        <p>Quality pine furniture for every home</p>
+    </div>
+</div>
 
             <!-- Slide 2 -->
-            <div class="slide" id="slide2">
-                <div class="slide-image">
-                    <span>Custom Designs</span>
-                </div>
-                <div class="slide-content">
-                    <h2>Custom Designs Available</h2>
-                    <p>Bring your vision to life</p>
-                </div>
-            </div>
+            <div class="slide active" id="slide2">
+    <img src="slide2.jpg" alt="Handcrafted Wood Furniture">
+
+    <div class="slide-content">
+        <h2>Handcrafted Wood Furniture</h2>
+        <p>Quality pine furniture for every home</p>
+    </div>
+</div>
 
             <!-- Slide 3 -->
-            <div class="slide" id="slide3">
-                <div class="slide-image">
-                    <span>Sustainable Forestry</span>
-                </div>
-                <div class="slide-content">
-                    <h2>Sustainable Forestry</h2>
-                    <p>Eco-friendly practices since 1985</p>
-                </div>
-            </div>
+                     <div class="slide active" id="slide2">
+    <img src="slide3.jpg" alt="Handcrafted Wood Furniture">
+
+    <div class="slide-content">
+        <h2>Handcrafted Wood Furniture</h2>
+        <p>Quality pine furniture for every home</p>
+    </div>
+</div>
 
             <!-- Navigation Arrows -->
             <div class="slide-nav">
@@ -570,37 +626,40 @@
 
         <div class="product-grid">
             <div class="product-card">
-                <div class="product-image">
-                    <span>Dining Table</span>
-                </div>
-                <div class="product-info">
-                    <h3>Rustic Dining Table</h3>
-                    <p>Solid pine, seats 8-10 people</p>
-                    <a href="#products" class="btn">View Details</a>
-                </div>
-            </div>
+    <div class="product-image">
+        <img src="dining-table.jpg" alt="Dining Table">
+    </div>
+
+    <div class="product-info">
+        <h3>Rustic Dining Table</h3>
+        <p>Solid pine, seats 8-10 people</p>
+        <a href="#products" class="btn">View Details</a>
+    </div>
+</div>
+
+          <div class="product-card">
+    <div class="product-image">
+        <img src="bed-frame.png" alt="Bed Frame">
+    </div>
+
+    <div class="product-info">
+        <h3>Bed Frame</h3>
+        <p>Double, Queen, King and single wood frame</p>
+        <a href="#products" class="btn">View Details</a>
+    </div>
+</div> 
 
             <div class="product-card">
-                <div class="product-image">
-                    <span>Bed Frame</span>
-                </div>
-                <div class="product-info">
-                    <h3>Queen Bed Frame</h3>
-                    <p>Farmhouse style with storage</p>
-                    <a href="#products" class="btn">View Details</a>
-                </div>
-            </div>
+    <div class="product-image">
+        <img src="Bookshelf.jpg" alt="Bookshelf">
+    </div>
 
-            <div class="product-card">
-                <div class="product-image">
-                    <span>Bookshelf</span>
-                </div>
-                <div class="product-info">
-                    <h3>Corner Bookshelf</h3>
-                    <p>5-tier adjustable shelves</p>
-                    <a href="#products" class="btn">View Details</a>
-                </div>
-            </div>
+    <div class="product-info">
+        <h3>Bookshelf</h3>
+        <p>5-tier shelves</p>
+        <a href="#products" class="btn">View Details</a>
+    </div>
+</div>
         </div>
     </div>
 
@@ -670,6 +729,12 @@
         setInterval(function() {
             changeSlide(1);
         }, 5000);
+		const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-tabs");
+
+toggle.addEventListener("click", ()=>{
+    nav.classList.toggle("active");
+});
     </script>
 </body>
 </html>
