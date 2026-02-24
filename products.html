@@ -128,6 +128,50 @@
             letter-spacing: 2px;
             font-weight: 500;
         }
+		.product-modal{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.85);
+    display:none;
+    align-items:center;
+    justify-content:center;
+    flex-direction:column;
+    z-index:2000;
+    padding:20px;
+}
+
+.product-modal img{
+    max-width:90%;
+    max-height:70vh;
+    border-radius:12px;
+    box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+.modal-info{
+    margin-top:15px;
+    text-align:center;
+    color:white;
+}
+
+.whatsapp-btn{
+    display:inline-block;
+    margin-top:10px;
+    padding:12px 22px;
+    background:#25D366;
+    color:white;
+    border-radius:30px;
+    text-decoration:none;
+    font-weight:bold;
+}
+
+.close-modal{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:40px;
+    color:white;
+    cursor:pointer;
+}
 
         /* Products Container */
         .products-container {
@@ -419,7 +463,7 @@
                     <img src="imageo2.jpg" alt="Garden Bench" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo2.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R2500</p>
-                        <small>Solid pine, 4ft length</small>
+                        <small></small>
                     </div>
                 </div>
 
@@ -427,7 +471,7 @@
                     <img src="imageo3.jpg" alt="Adirondack Chairs" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo3.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R2500</p>
-                        <small>Set of 2 with table</small>
+                        <small></small>
                     </div>
                 </div>
 
@@ -435,7 +479,7 @@
                     <img src="imageo4.jpg" alt="Picnic Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo4.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R4500</p>
-                        <small>Seats 6-8 adults</small>
+                        <small></small>
                     </div>
                 </div>
 
@@ -443,7 +487,7 @@
                     <img src="imageo5.jpg" alt="Porch Swing" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo5.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R3000</p>
-                        <small>3-seater with chains</small>
+                        <small></small>
                     </div>
                 </div>
 
@@ -451,7 +495,7 @@
                     <img src="imageo6.jpg" alt="Outdoor Dining Set" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageo6.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R1000</p>
-                        <small>Table + 6 chairs</small>
+                        <small></small>
                     </div>
                 </div>
             </div>
@@ -474,7 +518,7 @@
                     <img src="imageb1.jpg" alt="Queen Bed Frame" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb1.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R1800</p>
-                        <small>Farmhouse style</small>
+                        <small>Bunk bed</small>
                     </div>
                 </div>
 
@@ -482,7 +526,7 @@
                     <img src="imageb2.jpg" alt="King Bed Frame" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb2.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R4500</p>
-                        <small>With storage drawers</small>
+                        <small>Bunk Bed</small>
                     </div>
                 </div>
 
@@ -490,7 +534,7 @@
                     <img src="imageb3.png" alt="Nightstand" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb3.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R5000</p>
-                        <small>2-drawer, matching sets</small>
+                        <small></small>
                     </div>
                 </div>
 
@@ -498,14 +542,14 @@
                     <img src="imageb4.jpg" alt="Dresser" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb4.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R2500</p>
-                        <small>6-drawer with mirror</small>
+                        <small></small>
                     </div>
                 </div>
 
                 <div class="image-card">
                     <img src="imageb5.jpg" alt="Wardrobe" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imageb5.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R4000</p>
+                        <p>R3800</p>
                         <small>Double door, hanging space</small>
                     </div>
                 </div>
@@ -537,15 +581,15 @@
                     <img src="imagek1.jpg" alt="Kitchen Island" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek1.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R350</p>
-                        <small>With butcher block top</small>
+                        <small></small>
                     </div>
                 </div>
 
                 <div class="image-card">
                     <img src="imagek2.jpg" alt="Butcher Block" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek2.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R300</p>
-                        <small>End grain, 24"x18"</small>
+                        <p>R250</p>
+                        <small>Bar Stools</small>
                     </div>
                 </div>
 
@@ -553,7 +597,7 @@
                     <img src="imagek3.jpg" alt="Pot Rack" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek3.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R2000</p>
-                        <small>Ceiling mount, 36"</small>
+                        <small></small>
                     </div>
                 </div>
 
@@ -561,15 +605,15 @@
                     <img src="imagek4.jpg" alt="Kitchen Cart" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek4.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R3500</p>
-                        <small>Portable with wheels</small>
+                        <small></small>
                     </div>
                 </div>
 
                 <div class="image-card">
                     <img src="imagek5.jpg" alt="Bakers Rack" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imagek5.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R300</p>
-                        <small>5-tier with shelves</small>
+                        <p>R250</p>
+                        <small></small>
                     </div>
                 </div>
 
@@ -599,8 +643,8 @@
                 <div class="image-card">
                     <img src="imaged1.jpg" alt="Dining Table 6-Seat" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged1.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R3800</p>
-                        <small>72" x 36" rectangle</small>
+                        <p>R4000</p>
+                        <small>Dinning Table and Chairs Set</small>
                     </div>
                 </div>
 
@@ -608,30 +652,91 @@
                     <img src="imaged2.jpg" alt="Dining Table 8-Seat" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged2.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
                         <p>R8500</p>
-                        <small>84" x 40" with leaf</small>
+                        <small></small>
                     </div>
                 </div>
 
                 <div class="image-card">
                     <img src="imaged3.jpg" alt="Dining Chairs" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged3.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R1800</p>
+                        <p>Dining Chairs</p>
                         <small>Set of 4, upholstered seats</small>
                     </div>
                 </div>
 
                 <div class="image-card">
-                    <img src="imaged4.jpg" alt="Buffet Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged4.jpg</text></svg>'; this.alt='Image not found'">
+                    <img src="imaged4.png" alt="Buffet Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged4.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R1800</p>
-                        <small>60" with 3 drawers</small>
+                        <p>R2800</p>
+                        <small>Round Dining Table</small>
                     </div>
                 </div>
 
                 <div class="image-card">
-                    <img src="imaged5.jpg" alt="China Cabinet" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged5.jpg</text></svg>'; this.alt='Image not found'">
+                    <img src="imaged5.png" alt="China Cabinet" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged5.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R3500</p>
+                        <p>R1800</p>
+                        <small>Restaurant table and Chairs Set</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imaged6.jpg" alt="Bar Stools" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged6.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Bar Stools</p>
+                        <small>Set of 2, counter height</small>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="category-description">
+                <p>🍷 Gather around our handcrafted dining tables and chairs. Perfect for family meals and entertaining guests. Available in various sizes and finishes.</p>
+            </div>
+						<!-- Category 4: Dining -->
+        <section class="category-section" id="dining">
+            <div class="category-title">
+                <h2>Other products</h2>
+            </div>
+            
+            <div class="image-grid">
+                <!-- 6 Images for Dining (imaged1.jpg to imaged6.jpg) - Assuming naming pattern -->
+                <div class="image-card">
+                    <img src="imagep1.png" alt="Dining Table 6-Seat" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged1.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>R3000</p>
+                        <small>TV Stand</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagep2.jpg" alt="Dining Table 8-Seat" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged2.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>Dining Table (8-Seat)</p>
+                        <small>84" x 40" with leaf</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagep3.png" alt="Dining Chairs" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged3.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>R2000</p>
+                        <small>Office Studying Desk</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagep4.png" alt="Buffet Table" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged4.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>R1000</p>
+                        <small>Pool Lounge</small>
+                    </div>
+                </div>
+
+                <div class="image-card">
+                    <img src="imagep5.jpg" alt="China Cabinet" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged5.jpg</text></svg>'; this.alt='Image not found'">
+                    <div class="image-label">
+                        <p>China Cabinet</p>
                         <small>Glass doors, lighted</small>
                     </div>
                 </div>
@@ -639,17 +744,26 @@
                 <div class="image-card">
                     <img src="imaged6.jpg" alt="Bar Stools" class="product-image" onerror="this.src='data:image/svg+xml;utf8,<svg xmlns=%22http://www.w3.org/2000/svg%22 width=%22100%25%22 height=%22100%25%22 viewBox=%220 0 100 100%22><rect width=%22100%25%22 height=%22100%25%22 fill=%22%232f86c7%22/><text x=%2250%22 y=%2250%22 font-size=%2214%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22 fill=%22white%22>imaged6.jpg</text></svg>'; this.alt='Image not found'">
                     <div class="image-label">
-                        <p>R5500</p>
-                        <small>Set of 2, counter height</small>
+                        <p>R5000</p>
+                        <small>Sideboard Cabinets Server</small>
                     </div>
                 </div>
             </div>
-
-            <div class="category-description">
-                <p>🍷 Gather around our handcrafted dining tables and chairs. Perfect for family meals and entertaining guests. Available in various sizes and finishes.</p>
-            </div>
         </section>
     </div>
+	<div class="product-modal" id="productModal">
+    <span class="close-modal" id="closeModal">&times;</span>
+
+    <img id="modalImage">
+
+    <div class="modal-info">
+        <h3 id="modalTitle"></h3>
+
+        <a id="whatsappBtn" class="whatsapp-btn" target="_blank">
+            Order on WhatsApp
+        </a>
+    </div>
+</div>
 
     <!-- Footer -->
     <footer>
@@ -669,9 +783,9 @@
 
             <div class="footer-section">
                 <h3>CONTACT INFO</h3>
-                <p>📍 Cnr 14 Avenue and Blue Street Cason, Boksburg, 1459</p>
-                <p>📞 078 518 3355/ 067 042 8373</p>
-                <p>✉️ mapararamotion0@gmail.com</p>
+                <p>📍 123 Forest Lane, Pineville</p>
+                <p>📞 (555) 123-4567</p>
+                <p>✉️ info@pinecrestlumber.com</p>
             </div>
         </div>
 
@@ -693,11 +807,31 @@ const nav = document.getElementById("nav-tabs");
 toggle.addEventListener("click", ()=>{
     nav.classList.toggle("active");
 });
+const modal = document.getElementById("productModal");
+const modalImg = document.getElementById("modalImage");
+const modalTitle = document.getElementById("modalTitle");
+const whatsappBtn = document.getElementById("whatsappBtn");
+
+document.querySelectorAll(".image-card").forEach(card=>{
+    card.addEventListener("click", ()=>{
+        const img = card.querySelector("img");
+        const title = card.querySelector(".image-label p").innerText;
+
+        modal.style.display="flex";
+        modalImg.src = img.src;
+        modalTitle.innerText = title;
+
+        // WhatsApp message (we'll edit number later)
+        whatsappBtn.href =
+          "https://wa.me/27700000000?text=Hi, I'm interested in: " + title;
+    });
+});
+
+document.getElementById("closeModal").onclick = ()=> modal.style.display="none";
+
+modal.onclick = e=>{
+    if(e.target===modal) modal.style.display="none";
+};
     </script>
 </body>
 </html>
-
-
-
-
-
